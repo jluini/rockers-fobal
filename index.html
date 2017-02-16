@@ -1,0 +1,265 @@
+<html>
+	<head>
+		<title>El f&oacute;bal de los mi&eacute;rcoles</title>
+		<meta name="Keywords" content="fobal,rockers,mi&eacute;rcoles,futbol" />
+		<meta name="Description" content="Estad&iacute;sticas del f&uacute;tbol de los mi&eacute;rcoles" />
+		
+		<meta http-equiv="expires" content="0" />
+		<meta http-equiv="Pragma" content="no-cache" />
+		
+		<link rel="icon" href="icon.ico" type="image/x-icon" />
+		
+		<link rel="stylesheet" type="text/css" href="jquery-ui/jquery-ui.css" />
+		<link rel="stylesheet" type="text/css" href="style.css?v=13" />
+		
+		<script type="text/javascript" src="jquery.js"></script>
+		<script type="text/javascript" src="jquery-ui/jquery-ui.min.js"></script>
+		
+		<script type="text/javascript"        src="src/julo-util.js?v=13"></script>
+		<script type="text/javascript"        src="src/julo-sort.js?v=13"></script>
+		<script type="text/javascript"     src="src/RockersFobal.js?v=13"></script>
+		<script type="text/javascript" src="src/RockersFobalPage.js?v=13"></script>
+		
+		<script type="text/javascript">
+			$(document).ready(function() {
+				var matches = [
+					  "25/05/2016 ari/fede/joni/julo/seba      13-8  brian/jeday/lean/lucho/nano"
+					, "01/06/2016 ari/julo/lean/nano/seba      12-8  brian/javi/jeday/joni/lucho"
+					, "08/06/2016 brian/javi/jeday/roro/seba   14-6  ari/joni/julo/lean/nano"
+					, "15/06/2016 javi/jeday/julo/nano/roro    12-8  ari/brian/joni/lean/seba"
+					, "22/06/2016 brian/eze/javi/julo/nano      6-3  jeday/lean/ricky/roro/seba"
+					, "29/06/2016 brian/eze/javi/julo/seba     10-9  jeday/joni/lean/nano/roro"
+					, "06/07/2016 brian/jeday/nano/roro/tincho  9-8  fede/javi/joni/julo/ricky"
+					, "13/07/2016 javi/joni/nano/nahuel/seba    7-6  ari/brian/jeday/julo/roro"
+					, "20/07/2016 ari/brian/javi/lean/roro     16-3  jeday/joni/julo/nano/seba"
+					, "27/07/2016 brian/javi/julo/lean/roro     9-7  ari/fede/jeday/nano/seba"
+					, "03/08/2016 brian/julo/lucho/nano/roro    8-5  javi/jeday/joni/lean/seba"
+					, "10/08/2016 joni/julo/nano/roro/seba     16-14 brian/javi/jeday/lean/lucho"
+					, "17/08/2016 joni/julo/nano/roro/seba     15-11 brian/javi/jeday/lean/lucho"
+					, "24/08/2016 julo/lucho/nano/roro/seba    12-11 brian/javi/jeday/joni/lean"
+					, "31/08/2016 brian/javi/jeday/joni/lean   12-11 julo/lucho/nano/roro/seba"
+					, "07/09/2016 julo/lucho/nano/roro/seba    21-17 brian/javi/jeday/joni/lean"
+					, "14/09/2016 ari/lean/lucho/roro/tuli     14-13 brian/jeday/julo/nano/seba"
+					, "21/09/2016 brian/julo/lean/roro/seba    16-3  ari/javi/jeday/lucho/nano"
+					, "28/09/2016 brian/julo/lean/roro/seba     8-5  ari/eze/javi/jeday/nano"
+					, "05/10/2016 ari/brian/eze/javi/julo       9-6  jeday/joni/lean/nano/seba"
+					, "12/10/2016 ari/javi/jeday/lean/nano      9-7  brian/joni/julo/roro/seba"
+					, "26/10/2016 javi/jeday/joni/lean/roro    10-7  ari/julo/lucho/nano/seba"
+					, "02/11/2016 javi/jeday/juan/juani/seba   10-7  julo/lean/lucho/nano/ricky"
+					, "09/11/2016 fer/javi/lean/nano/seba       8-6  jeday/juani/julo/ricky/roro"
+					, "16/11/2016 javi/jeday/julo/roro/seba    12-5  ari/eze/fer/lean/nano"
+					, "23/11/2016 ari/fede/javi/lucho/juani    11-8  eze/julo/roro/seba/tincho"
+					, "30/11/2016 jeday/julo/nano/roro/seba    10-6  ari/eze/javi/juani/lucho"
+					, "07/12/2016 eze/javi/jeday/julo/nano     12-11 fer/juan/lucho/roro/seba"
+					, "14/12/2016 eze/jeday/lucho/nano/roro    12-11 javi/joni/juani/julo/lean"
+					, "21/12/2016 eze/jeday/juani/lean/roro    19-9  javi/joni/julo/nano/seba"
+					, "28/12/2016 ari/eze/jeday/nano/seba      11-7  joni/juani/lean/lucho/roro"
+					
+					, "04/01/2017 seba/nano/fer/eze/ari         9-4  facu/javi/jeday/joni/roro"
+					, "11/01/2017 javi/joni/juani/nano/seba    12-6  ari/eze/fer/jeday/lean/roro"
+					, "18/01/2017 ari/fer/juani/julo/ricky     10-6  javi/jeday/joni/juan/nano"
+					, "25/01/2017 javi/joni/juan/juani/lean    12-8  ari/fer/jeday/julo/nano"
+					, "01/02/2017 ari/javi/jeday/julo/roro     10-8  joni/juani/lean/nano/seba"
+					, "08/02/2017 javi/jeday/nano/roro/seba    12-7  ari/facu/fer/julo/lean"
+					, "15/02/2017 demian/franco/javi/jony/lean  5-8  ari/eze/joaco/joni/roro"
+	
+				];
+				
+				var opt = getOptions();
+				
+				var rfPage = new RFPage(matches, getOptions());
+			});
+			
+			function getOptions() {
+				var activeIndex = 1;
+				var tabParam = getParam("seccion") || getParam("s");
+				
+				if(tabParam != null) {
+					var ref = tabParam.substring(0, 3).toLowerCase();
+					if(ref == "his") {
+						activeIndex = 0;
+					} else if(ref == "pos") {
+						activeIndex = 1;
+					} else if(ref == "duo") {
+						activeIndex = 2;
+					} else if(ref == "tri") {
+						activeIndex = 3;
+					} else if(ref == "man" || ref == "hea") {
+						activeIndex = 4;
+					} else {
+						console.warn("Unknown tab '" + tabParam + "'");
+					}
+				}
+				
+				var startDate, endDate;
+				var seasonId = getParam("temporada") || getParam("temp") || getParam("t");
+				if(seasonId == null)
+					seasonId = "2017";
+				
+				return {
+					activeIndex: activeIndex,
+					seasonId: seasonId,
+					filters: {
+						minimumPlayerAttendance: 60,
+						minimumCoupleAttendance: 10,
+						minimumTriadAttendance:  5
+					}
+				}
+			}
+			
+			function getParam(name) {
+				return JuloUtil.getURLParameter(name);
+			}
+			
+		</script>
+	</head>
+	<body>
+		<div class="box"><h1 class="title"><span class="item">Rockers&acute; F&oacute;bal</span></h1></div>
+		
+		<div class="optionMenu box">
+			<div class="item">
+				<span class="caption">
+					Temporada:
+				</span>
+				<span class="content">
+					<select id="periodSelect">
+						<option value="2017">Temporada 2017</option>
+						<option value="2016">Temporada 2016</option>
+						<option value="global">Global</option>
+					</select>
+				</span>
+				&nbsp;&nbsp;&nbsp;<span>(<span id="totalDisplay">14</span> partidos totales)</span>
+			</div>
+		</div>
+		<!-- 
+		<div class="mpgContainer" style="display:none;">
+			<table>
+				<tr>
+					<td class="mpgCaptionTd" colspan="2">
+						<label for="playerMpgDisplay">M&iacute;nimo (jugadores):</label>
+					</td>
+					<td class="mpgControlTd"><div id="playerMpgControl" class="mpgControl"></div></td>
+					<td class="mpgDisplayTd"><div id="playerMpgDisplay" class="mpgDisplay"></div></td>
+					<td colspan="2">
+						<label for="teamMpgDisplay">M&iacute;nimo (equipos):</label>
+					</td>
+					<td class="mpgControlTd"><div id="teamMpgControl" class="mpgControl"></div></td>
+					<td class="mpgDisplayTd"><div id="teamMpgDisplay" class="mpgDisplay"></div></td>
+				</tr>
+			</table>
+		</div>
+		 -->
+		<noscript>
+			<div class="noscript">
+				<p>Habilit&aacute; Javascript para ver esta p&aacute;gina.</p>
+				<p>Enable Javascript to see this page, please.</p>
+				<p>Hay cosas copadas.</p>
+			</div>
+		</noscript>
+		<div id="tabs" style="display: none;">
+			<ul>
+				<li><a href="#tabs-1">Historial</a></li>
+				<li><a href="#tabs-2">Posiciones</a></li>
+				<li><a href="#tabs-3">Tabla por d&uacute;os</a></li>
+				<li><a href="#tabs-4">Tabla por tr&iacute;adas</a></li>
+				<li><a href="#tabs-6">Mano a mano</a></li>
+				<!-- li><a href="#tabs-5">Estad&iacute;sticas</a></li -->
+			</ul>
+			<div id="tabs-1">
+				<div class="historyTable">
+					<h2>2017</h2>
+					<table>
+						<thead>
+						<tr>
+							<th>Fecha</th>
+							<th>Local</th>
+							<th>Resultado</th>
+							<th>Visitante</th>
+						<tr/>
+						</thead>
+						<tbody>
+							<tr id="2017matchRowModel" style="display: none;">
+								<td class="fieldDate">dd/mm/aaaa</td>
+								<td class="fieldLocal">equipo local</td>
+								<td class="fieldResult">resul</td>
+								<td class="fieldVisitor">equipo visitante</td>
+							</tr>
+						</tbody>
+					</table>
+					
+					<h2>2016</h2>
+					<table>
+						<thead>
+						<tr>
+							<th>Fecha</th>
+							<th>Equipo ganador</th>
+							<th>Resultado</th>
+							<th>Equipo perdedor</th>
+						<tr/>
+						</thead>
+						<tbody>
+							<tr id="2016matchRowModel" style="display: none;">
+								<td class="fieldDate">dd/mm/aaaa</td>
+								<td class="fieldLocal">equipo local</td>
+								<td class="fieldResult">resul</td>
+								<td class="fieldVisitor">equipo visitante</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+			<div id="tabs-2">
+				<div class="scoreTable">
+					<table id="playerTable"><thead></thead><tbody></tbody></table>
+				</div>
+			</div>
+			<div id="tabs-3">
+				<div class="scoreTable">
+					<table id="coupleTable"><thead></thead><tbody></tbody></table>
+				</div>
+			</div>
+			<div id="tabs-4">
+				<div class="scoreTable">
+					<table id="triadTable"><thead></thead><tbody></tbody></table>
+				</div>
+			</div>
+			<!--
+			<div id="tabs-5">
+				<div>
+					<h3>Jugador con mejor promedio:</h3>
+					<ul id="bestRatioPlayers"></ul>
+					<h3>Jugador con m&aacute;s partidos ganados:</h3>
+					<ul id="bestWonPlayers"></ul>
+					<h3>Jugador con peor promedio:</h3>
+					<ul id="worstRatioPlayers"></ul>
+				</div>
+				<div>
+					<h3>D&uacute;o con mejor promedio:</h3>
+					<ul id="bestRatioCouples"></ul>
+					<h3>D&uacute;o con m&aacute;s partidos ganados:</h3>
+					<ul id="bestWonCouples"></ul>
+					<h3>D&uacute;o con m&aacute;s partidos jugados:</h3>
+					<ul id="bestTotalCouples"></ul>
+					<h3>D&uacute;o con peor promedio:</h3>
+					<ul id="worstRatioCouples"></ul>
+				</div>
+				<div>
+					<h3>Tr&iacute;ada con mejor promedio:</h3>
+					<ul id="bestRatioTriads"></ul>
+					<h3>Tr&iacute;ada con m&aacute;s partidos ganados:</h3>
+					<ul id="bestWonTriads"></ul>
+					<h3>Tr&iacute;ada con m&aacute;s partidos jugados:</h3>
+					<ul id="bestTotalTriads"></ul>
+					<h3>Tr&iacute;ada con peor promedio:</h3>
+					<ul id="worstRatioTriads"></ul>
+				</div>
+			</div>
+			 -->
+			<div id="tabs-6">
+				<div class="hthTable">
+					<table id="hthTable"><thead></thead><tbody></tbody></table>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

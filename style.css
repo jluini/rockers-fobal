@@ -1,0 +1,192 @@
+
+.noscript {
+	background: white;
+	font-size: 20pt;
+	padding: 20px;
+}
+
+
+body {
+	background-image: url("imgs/ball.png");
+	text-align: center;
+}
+h1 { font-size: 25pt; }
+h2 { font-size: 16pt; }
+.title {
+	font-family: Lucida Grande,Lucida Sans,Arial,sans-serif;
+	margin: 0;
+}
+
+.box {
+	color: white;
+	margin: 0;
+	font-size: 14pt;
+}
+
+.box .item {
+	background-color: rgba(0, 0, 0, 0.7);
+	padding: 0 50px;
+	/*display: block;*/
+	height: 30px;
+}
+
+#tabs {
+	/*width: 1000px;*/
+	font-size: 10pt;
+	background-color: rgba(255, 255, 255, 0.9);
+	overflow: scroll;
+}
+
+thead tr { background-color: rgba(255,255,255,0.5); }
+
+th {
+	background-repeat: no-repeat;
+	background-position: center right;
+}
+th.sortable {
+	cursor: pointer;
+	background-image: url(imgs/sort/sort_both.png);
+}
+
+th.sortable.sorting_desc { background-image: url(imgs/sort/sort_desc.png); }
+th.sortable.sorting_asc  { background-image: url(imgs/sort/sort_asc.png); }
+
+td, th {
+	text-align: center;
+	padding: 3px 20px 3px 10px;
+}
+th { font-size: 10pt; }
+td { font-size: 12pt; }
+
+.scoreTable th {
+	/*min-width: 120px;*/
+}
+
+.scoreTable th.column_name {
+	/*min-width: 200px;*/
+} 
+
+.hthTable td, .hthTable th {
+	/*min-width: 100px;*/
+}
+
+.hthTable .column_name  { width: 200px; }
+.hthTable .column_total { width: 120px; }
+.hthTable .column_ratio { width: 120px; }
+.hthTable .column_won   { width: 120px; }
+
+.historyTable td, .historyTable th {
+	font-size: 13pt;
+	font-weight: bold;
+}
+.historyTable .winner { color: #008800; }
+.historyTable .loser  { color: #880000; }
+
+/*
+.mpgContainer {
+	background-color: rgba(0, 0, 0, 0.75);
+	padding: 0px;
+	position: relative;
+	width: 700px;
+	
+}
+
+.mpgContainer td {
+vertical-align: middle;
+}
+.mpgContainer label {
+	color: white;
+}
+.mpgControlTd { width: 500px; padding: 25px 0; }
+.mpgDisplayTd {
+	width: 100px;
+	padding: 25px 25px 25px 25px;
+	font-size: 20pt;
+}
+.mpgCaptionTd {
+	font-size: 14pt;
+}
+
+.mpgDisplay {
+	border:0;
+	color:#f6931f;
+	font-weight:bold;
+	text-align: center;
+	background-color: black;
+}
+*/
+.player {
+	cursor: pointer;
+	padding: 3px;
+	font-weight: bold;
+}
+.player_selected {
+	/*font-weight: bold;*/
+	/*color: yellow;*/
+	background-color: #aaf;
+}
+
+.optionMenu {
+	
+}
+.optionMenu select {
+	font-size: 13pt;
+	padding: 2px 20px;
+	margin: 3px 0px;
+}
+
+.optionContainer {
+	text-align: center;
+	/*position: relative;*/
+	margin: 0px 0px;
+	padding: 15px;
+	height: 30px;
+	background: rgba(0, 0, 0, 0.8);
+}
+
+.box .caption {
+	padding: 3px 20px;
+	/*font-size: 20pt;*/
+	font-weight: bold;
+	color: white;
+}
+/*.option .caption, .option .content { float: left; } */
+
+.julotable_separator td {
+	color: #2e3c86;
+	font-size: 10pt;
+	padding-top: 20px;
+}
+.othrItem {
+	color: #2e3c86;
+}
+
+.scoreTable th.column_dots {
+	/*min-width: 150px;*/
+}
+
+.scoreTable .cell_dots {
+	text-align: left;
+}
+
+.matchIcon {
+	color: black;
+	position: relative;
+/* 	display: inline; */
+	width: 15px;
+	float: left;
+	text-align: center;
+}
+.matchIcon.matchIconHeader {
+	color: #000;
+	font-weight: bold;
+}
+.matchIcon.matchIconHeader.matchIconEmpty {
+	color: rgba(0, 0, 0, 0);
+}
+
+.matchIconWon   { background: #4ec74e; color: black; }
+.matchIconLost  { background: #f36565; color: black;  }
+.matchIconTied  { background: #ff0;  }
+.matchIconNone  { background: rgba(103, 103, 103, 0.25);  }
+.matchIconHeader{ background: #777;  }
